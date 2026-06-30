@@ -95,4 +95,34 @@ It depends on the use case:
 
 ---
 
+## 11. Why split `settings.py`?
+
+Different environments require different configurations. Splitting settings keeps shared configuration in `base.py` while allowing environment-specific overrides in:
+
+- `local.py` — development settings (DEBUG on, SQLite, etc.)
+- `production.py` — production settings (DEBUG off, secure headers, etc.)
+
+This reduces the risk of accidentally deploying **development settings to production**.
+
+---
+
+## 12. Why use environment variables?
+
+Environment variables keep **secrets and environment-specific values out of source code**, making applications:
+
+- **Safer** — credentials are never committed to version control
+- **Portable** — the same codebase runs across dev, testing, and production with different configs
+- **12-factor app compliant** — follows industry best practices for modern app deployment
+
+---
+
+## 13. Why do we need `psycopg2`?
+
+Django uses **database backends** as an abstraction layer. `psycopg2` is the **PostgreSQL adapter** for Python — it acts as the bridge that allows Django to communicate with a PostgreSQL server.
+
+> Without `psycopg2`, Django cannot connect to or query a PostgreSQL database regardless of how the settings are configured.
+
+---
+
 *Last updated: June 2026*
+
