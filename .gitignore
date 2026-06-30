@@ -30,3 +30,6 @@ htmlcov/
 # Migrations (optional during early development)
 # **/migrations/*
 # !**/migrations/__init__.py
+
+# Local notes / drafts
+Interview Questions
