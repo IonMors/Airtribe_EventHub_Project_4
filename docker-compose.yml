@@ -1,0 +1,20 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: pulsenotify-db
+
+    environment:
+      POSTGRES_DB: pulsenotify
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5433:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: pulsenotify-redis
+
+    ports:
+      - "6379:6379"
